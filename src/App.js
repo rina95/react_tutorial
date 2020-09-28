@@ -1,6 +1,11 @@
 import React from 'react';
 import './App.scss';
 
+const backgroundColors = ['#FFFD75', '#FAAACA', '#69F098', '#FFA500', '#AFEEEE', '#800080', 
+                          '#CD853F', '#A0522D', '#9ACD32', '#2F4F4F', '#6495ED', '#006400',
+                          '#8FBC8F', '#FF1493', '#FF00FF', '#DCDCDC', '#ADFF2F', '#F0E68C',
+                          '#E6E6FA', '#7B68EE', '#191970', '#808000', '#DDA0DD', '#008080']
+
 function Todo({ todo, index, saveTodo, completeTodo, removeTodo }) {
   const [note, setNote] = React.useState({
     title: "",
@@ -22,7 +27,7 @@ function Todo({ todo, index, saveTodo, completeTodo, removeTodo }) {
   return (
     <div
       className="note"
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "", backgroundColor: todo.color }}
     >
       <div className='note_header'>
         {
@@ -49,6 +54,7 @@ function Todo({ todo, index, saveTodo, completeTodo, removeTodo }) {
               className="title"
               name="title"
               placeholder="Enter note title"
+              style={{ backgroundColor: todo.color, background: todo.color }}
               value={note.title}
               onChange={handleChangeInput}
             >
@@ -57,6 +63,7 @@ function Todo({ todo, index, saveTodo, completeTodo, removeTodo }) {
               className="cnt"
               name="description"
               placeholder="Enter note description here"
+              style={{ backgroundColor: todo.color, background: todo.color }}
               value={note.description}
               onChange={handleChangeInput}
             >
@@ -98,23 +105,32 @@ function App() {
       description: "Learn about React",
       isCompleted: false,
       isNew: false,
+      color: backgroundColors[Math.floor(Math.random()*backgroundColors.length)],
     },
     {
       title: "Meet friend for lunch",
       description: "Meet friend for lunch",
       isCompleted: false,
       isNew: false,
+      color: backgroundColors[Math.floor(Math.random()*backgroundColors.length)],
     },
     {
       title: "Build really cool todo app",
       description: "Build really cool todo app",
       isCompleted: false,
       isNew: false,
+      color: backgroundColors[Math.floor(Math.random()*backgroundColors.length)],
     }
   ]);
 
   const addTodo = () => {
-    const newTodos = [...todos, { title: "", description: "", isNew: true }];
+    const newTodos = [...todos, { 
+                                  title: "", 
+                                  description: "", 
+                                  isNew: true,
+                                  color: backgroundColors[Math.floor(Math.random()*backgroundColors.length)], 
+                                }
+                      ];
     setTodos(newTodos);
   };
 
