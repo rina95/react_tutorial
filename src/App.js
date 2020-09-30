@@ -4,7 +4,7 @@ import './App.scss';
 const backgroundColors = ['#FFFD75', '#FAAACA', '#69F098', '#FFA500', '#AFEEEE', '#800080', 
                           '#CD853F', '#A0522D', '#9ACD32', '#2F4F4F', '#6495ED', '#006400',
                           '#8FBC8F', '#FF1493', '#FF00FF', '#DCDCDC', '#ADFF2F', '#F0E68C',
-                          '#E6E6FA', '#7B68EE', '#191970', '#808000', '#DDA0DD', '#008080']
+                          '#E6E6FA', '#7B68EE', '#FFE4E1', '#808000', '#DDA0DD', '#008080']
 
 function Todo({ todo, index, saveTodo, completeTodo, removeTodo }) {
   const [note, setNote] = React.useState({
